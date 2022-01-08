@@ -1,0 +1,32 @@
+body
+{
+    background-color: lightpink;
+    font-family: 'Vujahday Script', cursive;
+    font-weight: bold;
+}
+
+.header_div
+{
+    color: red;
+    background-color: white;
+}
+
+.copy_right_footer
+{
+    background-color: white;
+    font-size: small;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    line-height: 3;
+    text-shadow: 5px 5px 5px rgb( 151, 149, 149);
+}
+
+.header_div p
+{
+    font-size: small;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: bold;
+}

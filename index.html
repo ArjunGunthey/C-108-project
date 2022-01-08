@@ -1,0 +1,45 @@
+
+<html>
+  <head>
+    <title>Sound Identification Web App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <div class="col-xs-12 header_div text-center">
+      <h2>Sound controlled Animals</h2>
+      <p>Note: Play different sounds like barking, meowing, roaring to make the animals dance</p>
+    </div>
+    <div class="main_div">
+      <center>
+        <br>
+        <button class="btn btn-warning" onclick="startClassification();"> START </button>
+        <h3 id="result_label">I can hear - </h3>
+        <h4 id="result_confidence">Accuracy - </h4>
+        <br>
+        <img src="data:image/png;base64,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" id="alien1" width="300" height="300">
+        
+      </center>
+    </div>
+      <div class="copy_right_footer">
+        <h4>Developed By - Arjun Gunthey</h4>
+      </div>
+<script src="main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+ 
+
